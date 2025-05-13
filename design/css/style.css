@@ -1,21 +1,30 @@
 body {
   margin: 0;
+  padding-top: 100px;
 }
 
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  min-height: 100vh;
+}
 
 /* ---------------- Navbar --------------- */
 
 .navbar {
   display: flex;
-  align-items: center; 
+  align-items: center;
   background-color: rgb(127, 180, 240);
   position: fixed;
   top: 0;
   width: 100%;
   font-size: 1.6em;
-  height: 100px; 
-  z-index: 1000; 
-  padding: 0 20px; 
+  height: 100px;
+  z-index: 1000;
+  padding: 0 20px;
 }
 
 .logo {
@@ -26,7 +35,7 @@ body {
 .logo img {
   width: 40px;
   height: auto;
-  margin: 0 15px 0 15px; 
+  margin: 0 15px 0 15px;
 }
 
 .logo h1 {
@@ -41,9 +50,9 @@ body {
   justify-content: flex-end;
 }
 
-.nav-right img{
+.nav-right img {
   width: 20px;
-  margin: 0 10px 0 10px; 
+  margin: 0 10px 0 10px;
 }
 
 .btn {
@@ -101,6 +110,7 @@ h1 {
   font-size: 100px;
   color: black;
 }
+
 /* ---------------- section 2 --------------- */
 
 /* ---------------- Book Cards --------------- */
@@ -173,6 +183,7 @@ h1 {
   color: black;
   text-align: center;
 }
+
 .section-3 h2 {
   font-size: 2.8em;
   font-weight: 800;
@@ -201,12 +212,177 @@ footer {
 
 @media (max-width: 768px) {
   .book-card {
-    flex: 1 1 calc(50% - 40px); /* 2 cards per row on tablets */
+    flex: 1 1 calc(50% - 40px);
+    /* 2 cards per row on tablets */
   }
 }
 
 @media (max-width: 480px) {
   .book-card {
-    flex: 1 1 100%; /* 1 card per row on small screens */
+    flex: 1 1 100%;
+    /* 1 card per row on small screens */
   }
+}
+
+/*------------ cart.html ------------*/
+
+.cart-box {
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  background: #f5faff;
+  border-radius: 16px;
+  padding: 24px;
+}
+
+.cart-box h2 {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.remove-all {
+  color: #cc0000;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.cart-box-products {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.cart-product {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  background: #fff;
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+}
+
+.cart-product img {
+  width: 70px;
+  height: 70px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.product-details {
+  flex: 1;
+}
+
+.product-details h3 {
+  margin: 0 0 8px 0;
+  font-size: 16px;
+}
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-actions button {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: none;
+  background-color: #e0e0e0;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.product-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 6px;
+}
+
+.product-meta strong {
+  font-size: 16px;
+}
+
+.product-meta .remove {
+  color: #cc0000;
+  font-size: 13px;
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.cart-summary {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding-top: 16px;
+  margin-top: 24px;
+}
+
+.checkout-btn {
+  margin-top: 16px;
+  width: 100%;
+  padding: 14px;
+  background: linear-gradient(to right, #a4c9ff, #6aaaff);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* ---------------- product.html --------------- */
+
+.product-box {
+  margin-top: 50px;
+  flex: 1;
+  width: 90%;
+  height: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid black;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+  border-radius: 12px;
+}
+
+.img-cont {
+  width: 30%;
+  height: 100%;
+}
+
+.img-cont img {
+  width: 100%;
+}
+
+.desc-cont {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+}
+
+.desc-cont h3 {
+  font-size: 40px;
+}
+
+.desc-cont p {
+  font-size: 20px;
+}
+
+.buy-cont {
+  width: 20%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
