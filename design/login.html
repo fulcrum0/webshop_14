@@ -1,40 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-
+  <head>
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://use.fontawesome.com/be1ba39dfe.js"></script>
     <link rel="stylesheet" href="./css/style.css" />
     <title>LV Bookstore</title>
-</head>
+  </head>
 
-<body>
-
+  <body>
     <div class="container">
+      <!-- ------------------- Navbar -------------------- -->
 
-        <!-- ------------------- Navbar -------------------- -->
+      <nav class="navbar">
+        <div class="logo">
+          <img src="./img/book.png" alt="Logo" />
+          <h1>LV Bookstore</h1>
+        </div>
+        <div class="nav-right">
+          <li>
+            <a href="index.html"><img src="./img/home.svg" />Home</a>
+          </li>
+          <li>
+            <a href="cart.html"
+              ><img src="./img/cart.svg" />Cart <span>(1)</span></a
+            >
+          </li>
+          <li>
+            <a href="login.html"><img src="./img/log in.svg" />Login</a>
+          </li>
+          <li>
+            <a href="register.html"><img src="./img/register.svg" />Register</a>
+          </li>
+          <li>
+            <a href="#">Welcome, <span>Tarik</span></a>
+          </li>
+        </div>
+      </nav>
 
-        <nav class="navbar">
-            <div class="logo">
-                <img src="./img/book.png" alt="Logo" />
-                <h1>LV Bookstore</h1>
-            </div>
-            <div class="nav-right">
-                <li><a href="index.html"><img src="./img/home.svg">Home</a></li>
-                <li><a href="cart.html"><img src="./img/cart.svg">Cart <span>(1)</span></a></li>
-                <li><a href="login.html"><img src="./img/log in.svg">Login</a></li>
-                <li><a href="register.html"><img src="./img/register.svg">Register</a></li>
-                <li><a href="#">Welcome, <span>Tarik</span></a></li>
-            </div>
-        </nav>
+      <!-- ------------------- Login Box -------------------- -->
 
-        <footer>
-            <p>&copy; 2025 LV Bookstore. All rights reserved.</p>
-        </footer>
+      <div class="login-box">
+        <div class="login-header">
+            <header>Login</header>
+        </div>
+        <div class="input-box">
+            <input type="text" class="input-field" placeholder="Email" autocomplete="off" required>
+        </div>
+        <div class="input-box">
+            <input type="password" class="input-field" placeholder="Password" autocomplete="off" required>
+        </div>
+        <div class="forgot">
+            <section>
+                <input type="checkbox" id="check">
+                <label for="check">Remember me</label>
+            </section>
+            <section>
+                <a href="#">Forgot password</a>
+            </section>
+        </div>
+        <div class="input-submit">
+            <button class="submit-btn" id="submit"></button>
+            <label for="submit">Sign In</label>
+        </div>
+        <div class="sign-up-link">
+            <p>Don't have account? <a href="register.html">Sign Up</a></p>
+        </div>
     </div>
-</body>
 
+      <!-- ------------------- Footer -------------------- -->
+      <footer>
+        <p>&copy; 2025 LV Bookstore. All rights reserved.</p>
+      </footer>
+    </div>
+    <script src="./js/script.js"></script>
+  </body>
 </html>
