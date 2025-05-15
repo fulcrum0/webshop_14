@@ -23,10 +23,12 @@
                 <h1>LV Bookstore</h1>
             </div>
             <div class="nav-right">
-                <li><a href="index.html"><img src="./img/home.svg">Home</a></li>
-                <li><a href="cart.html"><img src="./img/cart.svg">Cart <span>(1)</span></a></li>
-                <li><a href="login.html"><img src="./img/log in.svg">Login</a></li>
-                <li><a href="register.html"><img src="./img/register.svg">Register</a></li>
-                <li><a href="#">Welcome, <span>Tarik</span></a></li>
+                <li><a href="index.php"><img src="img/home.svg">Home</a></li>
+                <li><a href="cart.php"><img src="img/cart.svg">Cart</a></li>
+                <li><a href="login.php"><img src="img/log in.svg">Login</a></li>
+                <li><a href="register.php"><img src="img/register.svg">Register</a></li>
+                <li>
+                    <p href="#">Welcome, <span id="user-id">Tarik</span></p>
+                </li>
             </div>
         </nav>

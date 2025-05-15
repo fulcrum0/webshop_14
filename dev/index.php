@@ -1,6 +1,11 @@
 <?php
 
+@include_once('src/Database/connection.php');
+
 @include_once('template/header.php');
+
+Database::query("SELECT * FROM `products`");
+$products = Database::getAll();
 
 ?>
 
@@ -22,20 +27,20 @@
 <!-- ------------------- Book Cards -------------------- -->
 <div class="book-cards">
     <?php foreach ($products as $product) : ?>
-        // <!-- first book card starts -->
-        <a href="product.html">
-            <div class="book-card">
-                <img src="img/blue.png" alt="Book 1" />
+        <div class="book-card">
+            <a href="<?= $product->id ?>">
+                <img src="<?= $product->product_img ?>">
                 <div class="card-content">
-                    <h3>First Aid Book</h3>
-                    <p>€14.95</p>
-                    <a href="#" class="btn">Add to Cart</a>
+                    <h3><?= $product->product_name ?></h3>
+                    <p><?= $product->product_desc ?></p>
                 </div>
-            </div>
-        </a>
-        <!-- first book card ends -->
+            </a>
+            <p><?= number_format($product->product_price, 2, ',', '.') ?></p>
+            <button class="btn">Add to Cart</button>
+        </div>
     <?php endforeach; ?>
 </div>
+
 
 <!-- ------------------- About -------------------- -->
 
