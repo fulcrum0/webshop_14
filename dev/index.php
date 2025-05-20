@@ -1,8 +1,6 @@
 <?php
-
-@include_once('src/Database/connection.php');
-
-@include_once('template/header.php');
+include_once('src/Database/connection.php');
+include_once('template/header.php');
 
 Database::query("SELECT * FROM `products`");
 $products = Database::getAll();
@@ -28,14 +26,14 @@ $products = Database::getAll();
 <div class="book-cards">
     <?php foreach ($products as $product) : ?>
         <div class="book-card">
-            <a href="<?= $product->id ?>">
-                <img src="<?= $product->product_img ?>">
+            <a href="product.php<?= $product->id ?>">
+                <img src="<?= $product->image ?>">
                 <div class="card-content">
-                    <h3><?= $product->product_name ?></h3>
-                    <p><?= $product->product_desc ?></p>
+                    <h3><?= $product->name ?></h3>
+                    <p><?= $product->desc ?></p>
                 </div>
             </a>
-            <p><?= number_format($product->product_price, 2, ',', '.') ?></p>
+            <p><?= number_format($product->price, 2, ',', '.') ?></p>
             <button class="btn">Add to Cart</button>
         </div>
     <?php endforeach; ?>
@@ -56,4 +54,4 @@ $products = Database::getAll();
 </div>
 
 <?php
-@include_once('template/footer.php');
+include_once('template/footer.php');

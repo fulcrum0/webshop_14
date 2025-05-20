@@ -27,8 +27,5 @@
                 <li><a href="cart.php"><img src="img/cart.svg">Cart</a></li>
                 <li><a href="login.php"><img src="img/log in.svg">Login</a></li>
                 <li><a href="register.php"><img src="img/register.svg">Register</a></li>
-                <li>
-                    <p href="#">Welcome, <span id="user-id">Tarik</span></p>
-                </li>
             </div>
         </nav>

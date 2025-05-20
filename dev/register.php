@@ -1,7 +1,8 @@
-<?=
-@include_once('src/Database/connection.php');
+<?php
+@include_once(__DIR__ . '/src/Helpers/auth.php');
+@include_once(__DIR__ . '/src/Helpers/message.php');
 
-@include_once('template/header.php');
+include_once('template/header.php');
 
 ?>
 
@@ -16,8 +17,7 @@
                 class="input-field"
                 placeholder="First Name"
                 autocomplete="off"
-                name="firstname"
-                required />
+                name="firstname" />
         </div>
 
         <div class="input-box">
@@ -26,8 +26,7 @@
                 class="input-field"
                 placeholder="Last Name"
                 autocomplete="off"
-                name="lastname"
-                required />
+                name="lastname" />
         </div>
 
         <div class="input-box">
@@ -36,8 +35,7 @@
                 class="input-field"
                 placeholder="City"
                 autocomplete="off"
-                name="city"
-                required />
+                name="city" />
         </div>
 
         <div class="input-box">
@@ -46,8 +44,7 @@
                 class="input-field"
                 placeholder="Email"
                 autocomplete="off"
-                name="email"
-                required />
+                name="email" />
         </div>
 
         <div class="input-box">
@@ -56,8 +53,7 @@
                 class="input-field"
                 placeholder="Password"
                 autocomplete="off"
-                name="password"
-                required />
+                name="password" />
         </div>
 
         <div class="input-submit">
@@ -68,7 +64,4 @@
 </div>
 
 <?=
-
-@include_once('template/footer.php');
-
-?>
+include_once('template/footer.php');

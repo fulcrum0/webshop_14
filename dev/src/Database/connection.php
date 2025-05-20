@@ -84,46 +84,47 @@ class Database
 
     private static function destructureInsertData(array $data): array
     {
-        $column_names = '';
-        $values = '';
-        $first = true;
+        $columns = [];
+        $placeholders = [];
+        $values = [];
+
         foreach ($data as $column => $value) {
-            $placeholders[':' . $column] = $value;
-            if ($first) {
-                $column_names .= "`$column`";
-                $values .= (is_int($value) ? "$value" : "'$value'");
-                $first = false;
-            } else {
-                $column_names .= ", `$column`";
-                $values .= (is_int($value) ? ", $value" : ", '$value'");
-            }
+            $columns[] = "`$column`";
+            $placeholders[] = ":$column";
+            $values[":$column"] = $value;
         }
 
         return [
-            'column_names' => $column_names,
+            'columns' => implode(', ', $columns),
+            'placeholders' => implode(', ', $placeholders),
             'values' => $values
         ];
     }
 
-    public static function insert(string $table, array $data): bool|Object
+
+    public static function insert(string $table, array $data): bool|object
     {
-        [
-            'column_names' => $column_names,
-            'values' => $values
-        ] = self::destructureInsertData($data);
-        $created_at = date("Y-m-d H:i:s"); //Carbon::now()->toDateTimeString();
+        ['columns' => $columns, 'placeholders' => $placeholders, 'values' => $values] = self::destructureInsertData($data);
 
-        $sql = "INSERT INTO `$table`($column_names, `created_at`, `updated_at`) VALUES($values, '$created_at', '$created_at')";
+        $created_at = date("Y-m-d H:i:s");
+        $values[':created_at'] = $created_at;
+        $values[':updated_at'] = $created_at;
 
-        self::query($sql);
+        $columns .= ', `created_at`, `updated_at`';
+        $placeholders .= ', :created_at, :updated_at';
+
+        $sql = "INSERT INTO `$table`($columns) VALUES($placeholders)";
+        self::query($sql, $values);
 
         $lastId = self::lastInserted();
-        if (self::query("SELECT `$table`.* FROM `$table` WHERE `$table`.`id` = $lastId")) {
+
+        if (self::query("SELECT * FROM `$table` WHERE `id` = :id", [':id' => $lastId])) {
             return self::get();
         }
 
         return false;
     }
+
 
     private static function destructureUpdateData(array $data): array
     {
