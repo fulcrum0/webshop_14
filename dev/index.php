@@ -26,7 +26,7 @@ $products = Database::getAll();
 <div class="book-cards">
     <?php foreach ($products as $product) : ?>
         <div class="book-card">
-            <a href="product.php<?= $product->id ?>">
+            <a href="product.php?product_id=<?= $product->id ?>">
                 <img src="<?= $product->image ?>">
                 <div class="card-content">
                     <h3><?= $product->name ?></h3>

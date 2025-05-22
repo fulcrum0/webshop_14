@@ -5,7 +5,16 @@
 
 include_once(__DIR__ . '/template/header.php');
 
-Database::query("SELECT * FROM `products` WHERE `products`.`id` = :id", [':id' => ]);
+if (!isset($_GET['product_id'])) {
+    setError('failed', 'Geen ID van het product ontvangen.');
+    header('Location: index.php');
+    exit(0);
+}
+
+$product_id = $_GET['product_id'];
+
+// Now get all the products
+Database::query("SELECT * FROM `products` WHERE `products`.`id` = :id", [':id' => $product_id]);
 $product = Database::get();
 ?>
 
